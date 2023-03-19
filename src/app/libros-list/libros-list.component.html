@@ -1,0 +1,29 @@
+<div class="p-3 text-warning-emphasis  border">
+    <h5>Libros que tengo</h5>
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Cant. Páginas</th>
+            <th>Portada</th>
+            <th>Estado de lectura</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let libro of libros" [ngClass]="{'like':libro.like}">
+            <td>{{libro.titulo| uppercase}}</td>
+            <td>{{libro.autor}}</td>
+            <td>{{libro.paginas}}</td>
+            <td> <img [src]="libro.portada" class="w-75 p-3" [alt]="libro.titulo"></td>
+            <td>
+                <span class="badge rounded-pill text-bg-warning" *ngIf="libro.leidas==0">Finalizado</span>
+                <span class="badge rounded-pill text-bg-success" *ngIf="libro.leidas!=0">En proceso</span>
+            </td>
+        </tr>
+       
+    </tbody>
+</table>
+
+
