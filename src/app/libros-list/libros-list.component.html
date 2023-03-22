@@ -4,22 +4,28 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
-            <th>Título</th>
+            <th>Portada</th>
+         <th>Título</th>
             <th>Autor</th>
             <th>Cant. Páginas</th>
-            <th>Portada</th>
+            <th>Cant. pag leidas</th>
             <th>Estado de lectura</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let libro of libros" [ngClass]="{'like':libro.like}">
+            <td> <img [src]="libro.portada" class="w-75 p-3" [alt]="libro.titulo"></td>
             <td>{{libro.titulo| uppercase}}</td>
             <td>{{libro.autor}}</td>
             <td>{{libro.paginas}}</td>
-            <td> <img [src]="libro.portada" class="w-75 p-3" [alt]="libro.titulo"></td>
             <td>
-                <span class="badge rounded-pill text-bg-warning" *ngIf="libro.leidas==0">Finalizado</span>
-                <span class="badge rounded-pill text-bg-success" *ngIf="libro.leidas!=0">En proceso</span>
+                <button type="button" class="btn btn-light btm-sm" (click)="downleidas(libro)">-</button>
+                <input type="text" [(ngModel)]="libro.leidas">
+                <button type="button" class="btn btn-light btm-sm" (click)="upleidas(libro)">+</button>
+            </td>
+            <td>
+                <span class="badge rounded-pill text-bg-warning" *ngIf="libro.leidas==libro.paginas">Finalizado</span>
+                <span class="badge rounded-pill text-bg-success" *ngIf="libro.leidas!=libro.paginas">En proceso</span>
             </td>
         </tr>
        

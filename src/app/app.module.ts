@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LibrosListComponent } from './libros-list/libros-list.component';
 import { LibrosEnProcesoComponent } from './libros-en-proceso/libros-en-proceso.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LibrosEnProcesoComponent } from './libros-en-proceso/libros-en-proceso.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

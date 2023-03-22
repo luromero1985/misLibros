@@ -39,4 +39,18 @@ libros: Libro[]= [
 constructor(){}
 
 ngOnInit(): void {}
+
+downleidas(libro:Libro):void{
+  if(libro.leidas>0){
+    libro.leidas--;
+  }
+  
+  }
+
+  upleidas(libro:Libro):void{
+   if(libro.leidas<libro.paginas){
+    libro.leidas++;
+   } 
+    }
 }
+
